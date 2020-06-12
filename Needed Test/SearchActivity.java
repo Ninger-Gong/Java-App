@@ -1,5 +1,6 @@
 package com.example.project2;
 
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -12,7 +13,7 @@ import com.example.project2.secondActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends secondActivity {
 
     ArrayAdapter arrayAdapter;
 
@@ -23,8 +24,8 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ListView listView =findViewById(R.id.Search_List);
-        List<String> ListSearch = new ArrayList<>();
-        ListSearch = secondActivity.vehicleArrayList();
+        ArrayList<Vehicle> vehicleArrayList = super.getMethod();
+
 
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, (List<String>) listView);
         listView.setAdapter(arrayAdapter);
