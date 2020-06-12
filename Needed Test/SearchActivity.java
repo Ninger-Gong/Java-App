@@ -27,7 +27,9 @@ public class SearchActivity extends secondActivity {
         ArrayList<Vehicle> vehicleArrayList = super.getMethod();
 
 
-        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, (List<String>) listView);
+        arrayAdapter = new ArrayAdapter<Vehicle>(this,
+                android.R.layout.simple_list_item_1,
+                vehicleArrayList);
         listView.setAdapter(arrayAdapter);
 
     }
@@ -37,7 +39,7 @@ public class SearchActivity extends secondActivity {
         getMenuInflater().inflate(R.menu.menu_item,menu);
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.getQueryHint();
+        searchView.setQueryHint("Search Here!");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
