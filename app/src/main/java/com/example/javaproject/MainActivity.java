@@ -13,11 +13,24 @@ import android.widget.ListView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private Button SearchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Search Button setting
+        SearchBtn = (Button)findViewById(R.id.Search_button);
+        SearchBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
         final List<Number> numbersList = DataProvider.getNumbers();
         NumberAdaptor itemsAdapter = new NumberAdaptor(this,
