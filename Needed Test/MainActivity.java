@@ -73,13 +73,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Search here");
-        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-
-
-
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setTitle("Search here");
+        //toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
     }
 
@@ -89,4 +86,16 @@ public class MainActivity extends AppCompatActivity {
         Intent numbersIntent = new Intent(this, Numberctivity2.class);
         startActivity(numbersIntent);
     }
+
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_up,R.anim.slide_down);
+    }
+
+    public void openSearchActivity(View view) {
+        Intent intent= new Intent(this,SearchActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+    }
 }
+
