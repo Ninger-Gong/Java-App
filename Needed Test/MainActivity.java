@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                 intent.putExtra("selectedCategory", numbersList.get(position).getMaoriTranslation());
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
 
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent numbersIntent = new Intent(getBaseContext(), Numberctivity2.class);
                 numbersIntent.putExtra("MessageFromMainActivity","This Message come from Main Activity");
                 startActivity(numbersIntent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
 
