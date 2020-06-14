@@ -29,7 +29,7 @@
             android:id="@+id/play_image_view"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/play"/>
+            android:src="@drawable/ic_action_action_search"/>
 
     </LinearLayout>
 

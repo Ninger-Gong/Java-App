@@ -2,15 +2,25 @@ package com.example.javaproject;
 
 public class Vehicle {
     private String make, type, model;
-    private int year, engineSize, price;
+    private String year, engineSize, price;
+    private int vistedTims = 0;
 
-    public Vehicle(String make, String type, String model, int year, int engineSize, int price) {
+    public Vehicle(String make, String type, String model, String year, String engineSize, String price) {
         this.make = make;
         this.type = type;
         this.model = model;
         this.year = year;
         this.engineSize = engineSize;
         this.price = price;
+
+    }
+
+    public int getVistedTims() {
+        return vistedTims;
+    }
+
+    public void setVistedTims() {
+        this.vistedTims = vistedTims + 1;
     }
 
     public String getMake() {
@@ -25,16 +35,16 @@ public class Vehicle {
         return model;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public int getEngineSize() {
+    public String getEngineSize() {
         return engineSize;
     }
 
@@ -50,15 +60,15 @@ public class Vehicle {
         this.model = model;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public void setEngineSize(int engineSize) {
+    public void setEngineSize(String engineSize) {
         this.engineSize = engineSize;
     }
 }

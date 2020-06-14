@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".secondaryActivity"
-    android:id="@+id/product_list_view">
+    android:background="#E0E0E0"
+    android:layout_height="match_parent">
 
-</ListView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".secondaryActivity"
+        android:dividerHeight="10sp"
+        android:padding="8dp"
+        android:divider="@android:color/transparent"
+        android:id="@+id/product_list_view"/>
+
+</LinearLayout>
+
+
