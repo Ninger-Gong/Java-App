@@ -51,8 +51,8 @@ public class SearchActivity extends secondActivity {
             }
         });
 
-        //Searchadapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,filteredModelList);
-        //Mysearch.setAdapter(Searchadapter);
+        Searchadapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,filteredModelList);
+        Mysearch.setAdapter(Searchadapter);
 
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
