@@ -75,19 +75,17 @@ public class SearchActivity extends secondActivity {
         ArrayList<Vehicle> filterList = new ArrayList<>();
         if(s!=null){
             s=s.toLowerCase();
-            for(Vehicle model:vehicleArrayList){
-                final String make = Vehicle.getMake().toLowerCase();
-                final String modeltype = Vehicle.getModel().toLowerCase();
+            for(int i=0;i<vehicleArrayList.size();i++){
+                String make = vehicleArrayList.get(i).getMake().toLowerCase();
+                String modeltype = vehicleArrayList.get(i).getModel().toLowerCase();
                 if(make.contains(s)){
-                    filterList.add(model);
+                    filterList.add(vehicleArrayList.get(i));
                 }else if(modeltype.contains(s)){
-                    filterList.add(model);
+                    filterList.add(vehicleArrayList.get(i));
                 }
             }
         }
         return filterList;
     }
 }
-
-
 
