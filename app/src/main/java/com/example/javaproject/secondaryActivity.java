@@ -13,9 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class secondaryActivity extends AppCompatActivity {
+public class secondaryActivity extends MainActivity {
 
     private static final String TAG = "secondaryActivity";
+//    private final ArrayList<Vehicle> vehicleArrayList = new ArrayList<>();
 
 
     @Override
@@ -23,22 +24,14 @@ public class secondaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary2);
 
-
         ListView categoryListView = (ListView) findViewById(R.id.product_list_view);
 
         Intent thisIntent = getIntent();
         String message = thisIntent.getStringExtra("selectedCategory");
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
-        Hatchback bmw = new Hatchback("BMW", "Hatchback", "x1", 2012, 1500, 24000);
-        Hatchback bmw3 = new Hatchback("BMW", "Hatchback", "x1", 2012, 1500, 24000);
 
-        final ArrayList<Vehicle> vehicleArrayList = new ArrayList<>();
-
-        vehicleArrayList.add(bmw);
-        vehicleArrayList.add(bmw3);
-
-            ArrayList<Vehicle> displayedList = new ArrayList<Vehicle>();
+            final ArrayList<Vehicle> displayedList = new ArrayList<Vehicle>();
 
             for (int i = 0; i < vehicleArrayList.size(); i++) {
                 String currentVehicle = vehicleArrayList.get(i).getType().toString();
@@ -59,9 +52,22 @@ public class secondaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent listIntent = new Intent(getBaseContext(),detailsActivity.class);
-                listIntent.putExtra("secondaryCategory", vehicleArrayList.get(position).getModel());
+                displayedList.get(position).setVistedTims();
+                listIntent.putExtra("vehicleVisitedTimes",displayedList.get(position).getVistedTims());
+                listIntent.putExtra("vehicleModel", displayedList.get(position).getModel());
+                listIntent.putExtra("vehicleMake",displayedList.get(position).getMake());
+                listIntent.putExtra("vehiclePrice",displayedList.get(position).getPrice());
+                listIntent.putExtra("vehicleEngine",displayedList.get(position).getEngineSize());
+                listIntent.putExtra("vehicleYear",displayedList.get(position).getYear());
+
+
+
                 startActivity(listIntent);
             }
         });
+    }
+
+    public ArrayList<Vehicle> getMethod(){
+        return vehicleArrayList;
     }
 }
