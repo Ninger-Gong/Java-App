@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0E0E0"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/detailView1"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/stationwagon"
+                    />
+                <ImageView
+                    android:id="@+id/detailView2"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/icon4"
+                    />
+                <ImageView
+                    android:id="@+id/detailView3"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/icon1"
+                    />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailView3"
+        android:layout_marginBottom="5dp">
+
+        <GridLayout
+            android:columnCount="2"
+            android:id="@+id/gridLayout"
+            android:rowCount="3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:columnOrderPreserved="false"
+            android:alignmentMode="alignMargins"
+            android:padding="8dp"
+            android:layout_below="@id/Product_name">
+            <!-- Row 1  -->
+            <!-- Column 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EngineSize"
+                        android:id="@+id/product_engine_size"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!-- Column 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Year"
+                        android:id="@+id/product_year"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <!-- Row 2  -->
+            <!-- Column 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Product Type"
+                        android:id="@+id/product_type"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Column 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:id="@+id/product_price"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+        <TextView
+            android:id="@+id/Product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gridLayout"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingBottom="5dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="25dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:id="@+id/product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Product Description"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_below="@id/gridLayout"
+                    android:layout_margin="5dp"
+                    />
+            </androidx.cardview.widget.CardView>
+
+        </ScrollView>
+
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
