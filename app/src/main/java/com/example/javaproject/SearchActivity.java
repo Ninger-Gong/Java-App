@@ -17,7 +17,7 @@ public class SearchActivity extends secondActivity {
     ArrayAdapter<Vehicle> adapter;
     ArrayAdapter<Vehicle> Searchadapter;
     final ArrayList<Vehicle> vehicleArrayList = super.getMethod();
-    ArrayList<Vehicle> DisplayList;
+    List<Vehicle> ListVeh;
     ArrayList<Vehicle> filteredModelList = new ArrayList<>();
 
     @Override
@@ -29,7 +29,9 @@ public class SearchActivity extends secondActivity {
         myListView =(ListView)findViewById(R.id.search_list);
         Mysearch = (ListView)findViewById(R.id.filtered_list);
 
-        adapter=new ArrayAdapter<>(this, R.layout.list_activity_layout,vehicleArrayList);
+
+
+        adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,vehicleArrayList);
         myListView.setAdapter(adapter);
 
 
@@ -49,7 +51,7 @@ public class SearchActivity extends secondActivity {
             }
         });
 
-        Searchadapter=new ArrayAdapter<>(this,R.layout.list_activity_layout,filteredModelList);
+        Searchadapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,filteredModelList);
         Mysearch.setAdapter(Searchadapter);
 
 
@@ -58,12 +60,6 @@ public class SearchActivity extends secondActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent searchIntent = new Intent(getBaseContext(),detailsActivity.class);
                 searchIntent.putExtra("secondaryCategory", vehicleArrayList.get(position).getModel());
-                searchIntent.putExtra("vehicleVisitedTimes",vehicleArrayList.get(position).getVistedTims());
-                searchIntent.putExtra("vehicleModel", vehicleArrayList.get(position).getModel());
-                searchIntent.putExtra("vehicleMake",vehicleArrayList.get(position).getMake());
-                searchIntent.putExtra("vehiclePrice",vehicleArrayList.get(position).getPrice());
-                searchIntent.putExtra("vehicleEngine",vehicleArrayList.get(position).getEngineSize());
-                searchIntent.putExtra("vehicleYear",vehicleArrayList.get(position).getYear());
                 startActivity(searchIntent);
             }
         });
@@ -73,12 +69,6 @@ public class SearchActivity extends secondActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent resultIntent = new Intent(getBaseContext(),detailsActivity.class);
                 resultIntent.putExtra("secondaryCategory",filteredModelList.get(position).getModel());
-                resultIntent.putExtra("vehicleVisitedTimes",filteredModelList.get(position).getVistedTims());
-                resultIntent.putExtra("vehicleModel", filteredModelList.get(position).getModel());
-                resultIntent.putExtra("vehicleMake",filteredModelList.get(position).getMake());
-                resultIntent.putExtra("vehiclePrice",filteredModelList.get(position).getPrice());
-                resultIntent.putExtra("vehicleEngine",filteredModelList.get(position).getEngineSize());
-                resultIntent.putExtra("vehicleYear",filteredModelList.get(position).getYear());
                 startActivity(resultIntent);
             }
         });
@@ -153,8 +143,6 @@ public class SearchActivity extends secondActivity {
                 }
             }
         }
-
         return filterList;
     }
 }
-
