@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Search Button setting
-        CardView SearchBtn = (CardView) findViewById(R.id.card_view_1);
+        ImageView SearchBtn = (ImageView) findViewById(R.id.search_button);
         SearchBtn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -149,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
     public void showNumbersActivity(View v){
         Intent numbersIntent = new Intent(this, Numberctivity2.class);
         startActivity(numbersIntent);
+    }
+    
+    public void openSearchActivity(View view) {
+        Intent intent= new Intent(this,SearchActivity.class);
+        startActivity(intent);
     }
 
 
