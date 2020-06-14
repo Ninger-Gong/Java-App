@@ -1,6 +1,8 @@
 package com.example.project2;
 
 import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import android.os.Bundle;
@@ -14,9 +16,8 @@ public class SearchActivity extends secondActivity {
     ListView Mysearch;
     ArrayAdapter<Vehicle> adapter;
     ArrayAdapter<Vehicle> Searchadapter;
-    private Vehicle Vehicle;
     final ArrayList<Vehicle> vehicleArrayList = super.getMethod();
-    List<Vehicle> filtered;
+    List<Vehicle> ListVeh;
     ArrayList<Vehicle> filteredModelList = new ArrayList<>();
 
     @Override
@@ -27,6 +28,8 @@ public class SearchActivity extends secondActivity {
         mySearch = (SearchView)findViewById(R.id.searchView);
         myListView =(ListView)findViewById(R.id.search_list);
         Mysearch = (ListView)findViewById(R.id.filtered_list);
+
+
 
         adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,vehicleArrayList);
         myListView.setAdapter(adapter);
@@ -44,12 +47,12 @@ public class SearchActivity extends secondActivity {
             public boolean onQueryTextChange(String newText) {
                 filteredModelList = filter(newText);
                 adapter.getFilter().filter(newText);
-                return true;
+                return false;
             }
         });
 
-        Searchadapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,filteredModelList);
-        Mysearch.setAdapter(Searchadapter);
+        //Searchadapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,filteredModelList);
+        //Mysearch.setAdapter(Searchadapter);
 
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,6 +74,61 @@ public class SearchActivity extends secondActivity {
         });
 
     }
+
+
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        final MenuItem searchItem = menu.findItem(R.id.search_icon);
+        final SearchView searview = (SearchView) searchItem.getActionView();
+        final ArrayList<Vehicle> filterList = new ArrayList<>();
+        searview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Reset SearchView
+                searview.clearFocus();
+                searview.setQuery("", false);
+                searview.setIconified(true);
+                searchItem.collapseActionView();
+
+                if(query != null){
+                    query=query.toLowerCase();
+                    for(int i=0;i<vehicleArrayList.size();i++){
+                        String make = vehicleArrayList.get(i).getMake().toLowerCase();
+                        String model = vehicleArrayList.get(i).getModel().toLowerCase();
+                        if(make.contains(query)){
+                            filterList.add(vehicleArrayList.get(i));
+                        }else if(model.contains(query)){
+                            filterList.add(vehicleArrayList.get(i));
+                        }
+                    }
+                }
+                SearchActivity.this.setTitle(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.search_icon) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public ArrayList<Vehicle> filter(String s){
         ArrayList<Vehicle> filterList = new ArrayList<>();
         if(s!=null){
