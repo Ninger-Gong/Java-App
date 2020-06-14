@@ -85,17 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//        // Search Button setting
-//        CardView SearchBtn = (CardView) findViewById(R.id.card_view_1);
-//        SearchBtn.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this,SearchActivity.class);
-//                        startActivity(intent);
-//                    }
-//                }
-//        );
+        // Search Button setting
+        CardView SearchBtn = (CardView) findViewById(R.id.card_view_1);
+        SearchBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
     }
 
