@@ -10,7 +10,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends secondActivity {
+public class SearchActivity extends secondaryActivity {
     SearchView mySearch;
     ListView myListView;
     ListView Mysearch;
@@ -79,7 +79,7 @@ public class SearchActivity extends secondActivity {
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_item,menu);
-        final MenuItem searchItem = menu.findItem(R.id.search_icon);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searview = (SearchView) searchItem.getActionView();
         final ArrayList<Vehicle> filterList = new ArrayList<>();
         searview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -123,7 +123,7 @@ public class SearchActivity extends secondActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.search_icon) {
+        if (id == R.id.action_search) {
             return true;
         }
         return super.onOptionsItemSelected(item);
