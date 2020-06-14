@@ -3,17 +3,11 @@ package com.example.project2;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SearchView;
+import android.view.View;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.RecyclerView;
 import com.example.project2.secondActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +26,7 @@ public class SearchActivity extends secondActivity {
         mySearch = (SearchView)findViewById(R.id.searchView);
         myListView =(ListView)findViewById(R.id.search_list);
 
-        ArrayList<Vehicle> vehicleArrayList = super.getMethod();
+        final ArrayList<Vehicle> vehicleArrayList = super.getMethod();
 
         adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,vehicleArrayList);
         myListView.setAdapter(adapter);
@@ -47,6 +41,16 @@ public class SearchActivity extends secondActivity {
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent searchIntent = new Intent(getBaseContext(), detailsActivity.class);
+                searchIntent.putExtra("secondaryCategory", vehicleArrayList.get(position).getModel());
+                startActivity(searchIntent);
             }
         });
 
