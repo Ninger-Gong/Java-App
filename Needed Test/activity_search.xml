@@ -24,4 +24,21 @@
 			android:dividerHeight="1dp">
 		
 	</ListView>
+	<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/afterSearch"
+			android:text="Search Results"
+			android:textSize="15dp"
+			android:layout_marginTop="10dp"
+			/>
+	<ListView
+			android:id="@+id/filtered_list"
+			android:layout_width="match_parent"
+			android:layout_height="fill_parent"
+			android:layout_marginTop="10dp"
+			android:divider="@android:color/transparent"
+			android:dividerHeight="1dp"
+			>
+	</ListView>
 </LinearLayout>
